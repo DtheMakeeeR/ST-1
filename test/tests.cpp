@@ -69,3 +69,4 @@ TEST(st1, sumPrime2) {
   uint64_t expected = 17;
   EXPECT_EQ(expected, res);
 }
+
