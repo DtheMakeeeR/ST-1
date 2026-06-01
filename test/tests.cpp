@@ -33,14 +33,12 @@ TEST(CheckPrimeTest, CompositeOddNumbers) {
 }
 
 TEST(CheckPrimeTest, LargePrime) {
-    EXPECT_TRUE(checkPrime(104729));  
+    EXPECT_TRUE(checkPrime(104729));
 }
 
 TEST(CheckPrimeTest, LargeComposite) {
     EXPECT_FALSE(checkPrime(1000003 * 1000003));
 }
-
-
 
 TEST(NPrimeTest, FirstPrimeIsTwo) {
     EXPECT_EQ(nPrime(1), 2);
@@ -59,10 +57,8 @@ TEST(NPrimeTest, HundredthPrime) {
 }
 
 TEST(NPrimeTest, ThPrimeValidatesInput) {
-        EXPECT_EQ(nPrime(0), 0);
+    EXPECT_EQ(nPrime(0), 0);
 }
-
-
 
 TEST(NextPrimeTest, AfterOneIsTwo) {
     EXPECT_EQ(nextPrime(1), 2);
@@ -87,28 +83,22 @@ TEST(NextPrimeTest, LargeInput) {
     EXPECT_EQ(nextPrime(1000000), 1000003);
 }
 
-
-
 TEST(SumPrimeTest, UpToTwo) {
-    EXPECT_EQ(sumPrime(2), 0);  
+    EXPECT_EQ(sumPrime(2), 0);
 }
 
 TEST(SumPrimeTest, UpToThree) {
-    EXPECT_EQ(sumPrime(3), 2);  
+    EXPECT_EQ(sumPrime(3), 2);
 }
 
 TEST(SumPrimeTest, UpToTen) {
-    
     EXPECT_EQ(sumPrime(10), 17);
 }
 
 TEST(SumPrimeTest, UpToTwenty) {
-    
     EXPECT_EQ(sumPrime(20), 77);
 }
 
 TEST(SumPrimeTest, UpToHundred) {
-    
     EXPECT_EQ(sumPrime(100), 1060);
 }
-
