@@ -4,68 +4,111 @@
 #include <cstdint>
 #include "alg.h"
 
-TEST(st1, checkPrime1) {
-  uint64_t res = checkPrime(0);
-  bool expected = false;
-  EXPECT_EQ(expected, res);
+TEST(CheckPrimeTest, OneIsNotPrime) {
+    EXPECT_FALSE(checkPrime(1));
 }
-TEST(st1, checkPrime2) {
-  uint64_t res = checkPrime(1);
-  bool expected = false;
-  EXPECT_EQ(expected, res);
+
+TEST(CheckPrimeTest, TwoIsPrime) {
+    EXPECT_TRUE(checkPrime(2));
 }
-TEST(st1, checkPrime3) {
-  uint64_t res = checkPrime(2);
-  bool expected = true;
-  EXPECT_EQ(expected, res);
+
+TEST(CheckPrimeTest, SmallPrimesArePrime) {
+    EXPECT_TRUE(checkPrime(3));
+    EXPECT_TRUE(checkPrime(5));
+    EXPECT_TRUE(checkPrime(7));
+    EXPECT_TRUE(checkPrime(11));
 }
-TEST(st1, checkPrime4) {
-  uint64_t res = checkPrime(3571);
-  bool expected = true;
-  EXPECT_EQ(expected, res);
+
+TEST(CheckPrimeTest, EvenNumbersGreaterThanTwoNotPrime) {
+    EXPECT_FALSE(checkPrime(4));
+    EXPECT_FALSE(checkPrime(6));
+    EXPECT_FALSE(checkPrime(100));
 }
-TEST(st1, nextPrime1) {
-  uint64_t res = nextPrime(4);
-  uint64_t expected = 5;
-  EXPECT_EQ(expected, res);
+
+TEST(CheckPrimeTest, CompositeOddNumbers) {
+    EXPECT_FALSE(checkPrime(9));
+    EXPECT_FALSE(checkPrime(15));
+    EXPECT_FALSE(checkPrime(21));
+    EXPECT_FALSE(checkPrime(25));
 }
-TEST(st1, nextPrime2) {
-  uint64_t res = nextPrime(5);
-  uint64_t expected = 7;
-  EXPECT_EQ(expected, res);
+
+TEST(CheckPrimeTest, LargePrime) {
+    EXPECT_TRUE(checkPrime(104729));  
 }
-TEST(st1, nextPrime3) {
-  uint64_t res = nextPrime(0);
-  uint64_t expected = 2;
-  EXPECT_EQ(expected, res);
+
+TEST(CheckPrimeTest, LargeComposite) {
+    EXPECT_FALSE(checkPrime(1000003 * 1000003));
 }
-TEST(st1, nextPrime4) {
-  uint64_t res = nextPrime(1);
-  uint64_t expected = 2;
-  EXPECT_EQ(expected, res);
+
+
+
+TEST(NPrimeTest, FirstPrimeIsTwo) {
+    EXPECT_EQ(nPrime(1), 2);
 }
-TEST(st1, nPrime1) {
-  uint64_t res = nPrime(1);
-  uint64_t expected = 2;
-  EXPECT_EQ(expected, res);
+
+TEST(NPrimeTest, SecondPrimeIsThree) {
+    EXPECT_EQ(nPrime(2), 3);
 }
-TEST(st1, nPrime2) {
-  uint64_t res = nPrime(10);
-  uint64_t expected = 29;
-  EXPECT_EQ(expected, res);
+
+TEST(NPrimeTest, TenthPrime) {
+    EXPECT_EQ(nPrime(10), 29);
 }
-TEST(st1, nPrime3) {
-  uint64_t res = nPrime(50);
-  uint64_t expected = 229;
-  EXPECT_EQ(expected, res);
+
+TEST(NPrimeTest, HundredthPrime) {
+    EXPECT_EQ(nPrime(100), 541);
 }
-TEST(st1, sumPrime1) {
-  uint64_t res = sumPrime(2000000);
-  uint64_t expected = 142913828922;
-  EXPECT_EQ(expected, res);
+
+TEST(NPrimeTest, ThPrimeValidatesInput) {
+        EXPECT_EQ(nPrime(0), 0);
 }
-TEST(st1, sumPrime2) {
-  uint64_t res = sumPrime(10);
-  uint64_t expected = 17;
-  EXPECT_EQ(expected, res);
+
+
+
+TEST(NextPrimeTest, AfterOneIsTwo) {
+    EXPECT_EQ(nextPrime(1), 2);
 }
+
+TEST(NextPrimeTest, AfterTwoIsThree) {
+    EXPECT_EQ(nextPrime(2), 3);
+}
+
+TEST(NextPrimeTest, AfterPrimeGivesNextPrime) {
+    EXPECT_EQ(nextPrime(7), 11);
+    EXPECT_EQ(nextPrime(13), 17);
+}
+
+TEST(NextPrimeTest, AfterCompositeGivesNextPrime) {
+    EXPECT_EQ(nextPrime(4), 5);
+    EXPECT_EQ(nextPrime(10), 11);
+    EXPECT_EQ(nextPrime(14), 17);
+}
+
+TEST(NextPrimeTest, LargeInput) {
+    EXPECT_EQ(nextPrime(1000000), 1000003);
+}
+
+
+
+TEST(SumPrimeTest, UpToTwo) {
+    EXPECT_EQ(sumPrime(2), 0);  
+}
+
+TEST(SumPrimeTest, UpToThree) {
+    EXPECT_EQ(sumPrime(3), 2);  
+}
+
+TEST(SumPrimeTest, UpToTen) {
+    
+    EXPECT_EQ(sumPrime(10), 17);
+}
+
+TEST(SumPrimeTest, UpToTwenty) {
+    
+    EXPECT_EQ(sumPrime(20), 77);
+}
+
+TEST(SumPrimeTest, UpToHundred) {
+    
+    EXPECT_EQ(sumPrime(100), 1060);
+}
+
