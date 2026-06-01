@@ -37,7 +37,7 @@ TEST(CheckPrimeTest, LargePrime) {
 }
 
 TEST(CheckPrimeTest, LargeComposite) {
-    EXPECT_FALSE(checkPrime(1000003 * 1000003));
+    EXPECT_FALSE(checkPrime(1000003ULL * 1000003ULL));
 }
 
 TEST(NPrimeTest, FirstPrimeIsTwo) {
